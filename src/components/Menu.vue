@@ -19,7 +19,7 @@
             <router-link class="nav-link" to="/home">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+             <router-link class="nav-link" to="/nuevopersonaje">Nuevo personaje</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
@@ -33,7 +33,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown link
+              Series
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li v-for="(s, index) in series" :key="index">

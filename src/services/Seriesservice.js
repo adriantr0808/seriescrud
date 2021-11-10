@@ -19,7 +19,7 @@ export default class Seriesservice {
     getSeriesbyId(id) {
 
         return new Promise(function (resolve) {
-            var request = '/api/Personajes/' + id;
+            var request = '/api/Series/' + id;
             var url = Global.urlSeries + request;
             axios.get(url).then(res => {
                 var serie = res.data;
@@ -27,5 +27,28 @@ export default class Seriesservice {
             });
         });
 
+    }
+
+    getPersonajesbyIdSerie(idSerie){
+        
+        return new Promise (function(resolve){
+            var request = '/api/Series/PersonajesSerie/'+idSerie;
+            var url = Global.urlSeries+request;
+            axios.get(url).then(res => {
+                var personajes = res.data;
+                resolve(personajes);
+               
+            })
+        });
+    }
+
+    postPersonaje(personaje){
+        return new Promise (function(resolve){
+            var request = '/api/Personajes';
+            var url = Global.urlSeries+request;
+            axios.post(url, personaje).then(res =>{
+                resolve(res);
+            });
+        })
     }
 }
