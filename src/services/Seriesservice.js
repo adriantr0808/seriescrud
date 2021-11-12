@@ -51,4 +51,27 @@ export default class Seriesservice {
             });
         })
     }
+
+    getPersonajes(){
+        return new Promise(function (resolve) {
+            var request = '/api/Personajes';
+            var url = Global.urlSeries + request;
+            var personajes = [];
+            axios.get(url).then(res => {
+                personajes = res.data;
+                resolve(personajes);
+            });
+        });
+    }
+    getPersonajeById(id){
+        return new Promise(function (resolve) {
+            var request = '/api/Personajes/'+id;
+            var url = Global.urlSeries + request;
+            
+            axios.get(url).then(res => {
+                var personaje = res.data;
+                resolve(personaje);
+            });
+        });
+    }
 }

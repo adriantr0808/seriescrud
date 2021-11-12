@@ -60,6 +60,8 @@ export default {
                 this.$router.push('/personajes/'+this.personaje.idSerie);
             });
         }
+
+       
     }
 }
 </script>

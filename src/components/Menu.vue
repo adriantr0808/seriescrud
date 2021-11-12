@@ -22,7 +22,7 @@
              <router-link class="nav-link" to="/nuevopersonaje">Nuevo personaje</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+             <router-link class="nav-link" to="/modificarpersonaje">Modificar personaje</router-link>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -36,7 +36,8 @@
               Series
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li v-for="(s, index) in series" :key="index">
+              <li v-if='series.length==0'>Cargando...</li>
+              <li v-else v-for="(s, index) in series" :key="index">
                 <router-link :to="'/detallesserie/' + s.idSerie">{{
                   s.nombre
                 }}</router-link>
