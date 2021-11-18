@@ -17,7 +17,6 @@ export default class Seriesservice {
     }
 
     getSeriesbyId(id) {
-
         return new Promise(function (resolve) {
             var request = '/api/Series/' + id;
             var url = Global.urlSeries + request;
@@ -71,6 +70,16 @@ export default class Seriesservice {
             axios.get(url).then(res => {
                 var personaje = res.data;
                 resolve(personaje);
+            });
+        });
+    }
+
+    updatePersonaje(idpersonaje, idserie){
+        return new Promise(function(resolve){
+            var request = '/api/Personajes/'+idpersonaje+'/'+idserie;
+            var url = Global.urlSeries+request;
+            axios.put(url).then(res => {
+                resolve(res);
             });
         });
     }

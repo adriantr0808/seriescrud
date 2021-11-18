@@ -3,7 +3,7 @@
     <h1 class="m-4">Modificar personaje</h1>
     <form
       style="width: 500px; margin: 0 auto; padding: 1em; background: beige"
-      method="post"
+      method="post" v-on:submit.prevent='modificarPersonaje()'
     >
       <div>
         <label>Seleccione una serie: </label>
@@ -42,7 +42,8 @@ export default {
       serieSelec:0,
       personajeSelec:0,
       serieSelecArr:{},
-      personajeSelecObj:{}
+      personajeSelecObj:{},
+      
 
     }
   },
@@ -77,6 +78,13 @@ export default {
           service.getPersonajeById(this.personajeSelec).then((result)=>{
             this.personajeSelecObj = result;
             console.log(this.personajeSelecObj);
+          });
+        },
+
+        modificarPersonaje(){
+          service.updatePersonaje(this.personajeSelec, this.serieSelec).then((res) => {
+              console.log(res);
+              this.$router.push('/detallesserie/'+this.serieSelec);
           });
         }
   }
